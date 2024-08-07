@@ -22,8 +22,6 @@ public class TileManagmentScript : MonoBehaviour
             TileSpawn(Random.Range(0, tilesPrefabs.Length));
         }
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (playerTransform.position.z - 100 > zSpawn - (numberofTiles * tileLength))
@@ -32,16 +30,14 @@ public class TileManagmentScript : MonoBehaviour
             DeleteTile();
         }
     }
-    private void TileSpawn(int tileIndex) 
+    private void TileSpawn(int tileIndex)
     {
         GameObject go = Instantiate(tilesPrefabs[tileIndex], transform.up * -zSpawn, transform.rotation);
-        Debug.Log("uretilen" + go.name);
         activeTiles.Add(go);
         zSpawn += tileLength;
     }
     private void DeleteTile()
     {
-        Debug.Log("silinen" + activeTiles[0].name);
         Destroy(activeTiles[0]);
         activeTiles.RemoveAt(0);
     }

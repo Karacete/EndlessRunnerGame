@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpForce;
     private bool isGrounded;
     private float gravity;
+    private GameObject childObject;
     void Start()
     {
         speed = 10f;
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
         jumpForce = 7f;
         isGrounded = true;
         gravity = 3f;
+        childObject = this.gameObject.transform.GetChild(0).gameObject;
     }
     private void FixedUpdate()
     {
@@ -37,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             desiredLine += 1;
-            if (desiredLine >2)
+            if (desiredLine > 2)
                 desiredLine = 2;
         }
         if (Input.GetKeyDown(KeyCode.A))
@@ -46,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
             if (desiredLine == -1)
                 desiredLine = 0;
         }
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (isGrounded)
                 Jump();
@@ -62,6 +64,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
             isGrounded = true;
+        if (collision.gameObject.CompareTag("Barrier"))
+        {
+            Debug.Log("bu çarptý");
+            desiredLine = 1;
+        }
     }
     private void Jump()
     {
