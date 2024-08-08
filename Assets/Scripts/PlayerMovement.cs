@@ -13,7 +13,8 @@ public class PlayerMovement : MonoBehaviour
     private float jumpForce;
     private bool isGrounded;
     private float gravity;
-    private GameObject childObject;
+    private int oldDesired;
+    private int newDesired;
     void Start()
     {
         speed = 10f;
@@ -23,7 +24,8 @@ public class PlayerMovement : MonoBehaviour
         jumpForce = 7f;
         isGrounded = true;
         gravity = 3f;
-        childObject = this.gameObject.transform.GetChild(0).gameObject;
+        newDesired = desiredLine;
+        oldDesired = 4;
     }
     private void FixedUpdate()
     {
@@ -41,12 +43,15 @@ public class PlayerMovement : MonoBehaviour
             desiredLine += 1;
             if (desiredLine > 2)
                 desiredLine = 2;
+            DesiredChanged();
+
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
             desiredLine -= 1;
             if (desiredLine == -1)
                 desiredLine = 0;
+            DesiredChanged();
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -62,13 +67,21 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        Collider collider = collision.GetContact(0).thisCollider;
         if (collision.gameObject.CompareTag("Ground"))
             isGrounded = true;
         if (collision.gameObject.CompareTag("Barrier"))
         {
-            Debug.Log("bu çarptý");
-            desiredLine = 1;
+            desiredLine = oldDesired;
+            newDesired = desiredLine;
+            oldDesired = newDesired;
         }
+
+    }
+    private void DesiredChanged()
+    {
+        oldDesired = newDesired;
+        newDesired = desiredLine;
     }
     private void Jump()
     {

@@ -6,12 +6,10 @@ public class ChildObjectScript : MonoBehaviour
 {
     [SerializeField]
     private GameObject losePanel;
-    private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hata nerede");
-        if (collision.gameObject.CompareTag("Barrier"))
+        if (other.gameObject.CompareTag("Barrier"))
         {
-            Debug.Log("carpti");
             Time.timeScale = 0;
             losePanel.SetActive(true);
         }
