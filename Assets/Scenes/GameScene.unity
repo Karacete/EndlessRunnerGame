@@ -391,9 +391,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilesPrefabs:
-  - {fileID: 5292775167724458839, guid: 45f962509a7d7c64f8764a74f0688617, type: 3}
-  - {fileID: 710870360819978085, guid: 2a086a4e418e55f4397b38b15d400457, type: 3}
-  - {fileID: 633959734832577746, guid: 508336b747bef8145a8e4235a441934d, type: 3}
+  - {fileID: 9201847403650703830, guid: f90275af65c7a1c4cb53f405118ead9a, type: 3}
+  - {fileID: 920034207737097004, guid: 2a086a4e418e55f4397b38b15d400457, type: 3}
+  - {fileID: 6013211141392026746, guid: 508336b747bef8145a8e4235a441934d, type: 3}
   - {fileID: 4396009008147415582, guid: 43d02d65063cb6a4d84e24e37456181d, type: 3}
   - {fileID: 4330456944202443046, guid: 2619cf80ec3cb5b4596d79cd0d55b2f9, type: 3}
   - {fileID: 2564923004242237446, guid: 12026c1a7d8df624b8c1908e7bfd4eee, type: 3}
@@ -782,8 +782,8 @@ Transform:
   m_GameObject: {fileID: 1249905383}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.003000006, y: 0, z: 0.635}
-  m_LocalScale: {x: 0.31139153, y: 1, z: 0.13097082}
+  m_LocalPosition: {x: 0.003000006, y: 0.0067, z: 0.635}
+  m_LocalScale: {x: 0.31139153, y: 1.213272, z: 0.13097082}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1358310333}
