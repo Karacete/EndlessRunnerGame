@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Barrier
+  - Animator
   layers:
   - Default
   - TransparentFX

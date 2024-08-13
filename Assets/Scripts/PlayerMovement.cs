@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private float gravity;
     private int oldDesired;
     private int newDesired;
+    private AnimationScript animator;
     void Start()
     {
         speed = 10f;
@@ -26,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
         gravity = 3f;
         newDesired = desiredLine;
         oldDesired = 4;
+        animator=GameObject.FindWithTag("Animator").GetComponent<AnimationScript>();
     }
     private void FixedUpdate()
     {
@@ -87,5 +89,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = new Vector3(0,jumpForce,0);
         isGrounded = false;
+        animator.JumpAnimation();
     }
 }

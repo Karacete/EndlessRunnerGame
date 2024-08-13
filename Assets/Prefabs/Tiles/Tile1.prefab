@@ -5417,7 +5417,7 @@ GameObject:
   - component: {fileID: 185523259203858793}
   m_Layer: 0
   m_Name: kw_barrier_striped
-  m_TagString: Barrier
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6343,7 +6343,7 @@ GameObject:
   - component: {fileID: 6619772734089834768}
   m_Layer: 0
   m_Name: kw_barriers_rod
-  m_TagString: Untagged
+  m_TagString: Barrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 7839178104608070575}
   m_Layer: 0
   m_Name: kw_barriers_rod
-  m_TagString: Untagged
+  m_TagString: Barrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5823,8 +5823,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8810065406845405056}
   m_Layer: 0
-  m_Name: kw_barrier_striped (5)
-  m_TagString: Barrier
+  m_Name: kw_barrier_striped (2)
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6043,8 +6043,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4386053722844104503}
   m_Layer: 0
-  m_Name: kw_barrier_striped (4)
-  m_TagString: Barrier
+  m_Name: kw_barrier_striped (1)
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9081,7 +9081,7 @@ GameObject:
   - component: {fileID: 1525617390593694658}
   m_Layer: 0
   m_Name: kw_barriers_rod
-  m_TagString: Untagged
+  m_TagString: Barrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
