@@ -1,14 +1,27 @@
+using System.Collections;
 using UnityEngine;
 
 public class AnimationScript : MonoBehaviour
 {
-    private Animator characterAnimator;
+    [SerializeField]
+    private GameObject mainCam;
+    private Animator animator;
+    private Animation anim;
     void Start()
     {
-        characterAnimator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
+        anim = GetComponent<Animation>();
+        animator.Play("Vibration");
     }
-    public void JumpAnimation()
+    private void FixedUpdate()
     {
-        characterAnimator.Play("Jump");
+        //sDebug.Log(animator);
+        if (animator.applyRootMotion) //animator penceeresinde o secenek secili oldugundan devamlýi calisacak sasirma yani
+            CamChanged(); //sure hala bir secenek ama daha akilci yontemler bulmaya calis.
+    }
+    private void CamChanged()
+    {
+        mainCam.SetActive(true);
+        this.gameObject.SetActive(false);
     }
 }

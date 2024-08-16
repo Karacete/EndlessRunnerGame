@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     private float gravity;
     private int oldDesired;
     private int newDesired;
+    [SerializeField]
+    private GameObject mainCam;
     void Start()
     {
         speed = 10f;
@@ -27,13 +29,18 @@ public class PlayerMovement : MonoBehaviour
         newDesired = desiredLine;
         oldDesired = 4;
     }
+
+    [Obsolete]
     private void FixedUpdate()
     {
-        Vector3 forwardMove = transform.forward * speed * Time.fixedDeltaTime;
-        Vector3 horizontalMove = transform.right * horizontal * speed * Time.fixedDeltaTime;
-        rb.MovePosition(rb.position + forwardMove + horizontalMove);
-        if (!isGrounded)
-            rb.AddForce(0, -gravity, 0);
+        if(mainCam.active)
+        {
+            Vector3 forwardMove = transform.forward * speed * Time.fixedDeltaTime;
+            Vector3 horizontalMove = transform.right * horizontal * speed * Time.fixedDeltaTime;
+            rb.MovePosition(rb.position + forwardMove + horizontalMove);
+            if (!isGrounded)
+                rb.AddForce(0, -gravity, 0);
+        }
     }
     void Update()
     {
