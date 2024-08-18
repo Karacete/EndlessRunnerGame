@@ -76,12 +76,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
             isGrounded = true;
-        if (collision.gameObject.CompareTag("Barrier"))
+        if (collision.gameObject.CompareTag("Vehicle"))
         {
             desiredLine = oldDesired;
             newDesired = desiredLine;
             oldDesired = newDesired;
-            Debug.Log("new..:" + newDesired + "  old..:" + oldDesired);
         }
     }
     private void DesiredChanged()

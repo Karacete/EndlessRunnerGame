@@ -6,18 +6,17 @@ public class AnimationScript : MonoBehaviour
     [SerializeField]
     private GameObject mainCam;
     private Animator animator;
-    private Animation anim;
+    private AnimatorClipInfo[] animatorClips;
     void Start()
     {
         animator = GetComponent<Animator>();
-        anim = GetComponent<Animation>();
         animator.Play("Vibration");
     }
     private void FixedUpdate()
     {
-        //sDebug.Log(animator);
-        if (animator.applyRootMotion) //animator penceeresinde o secenek secili oldugundan devamlýi calisacak sasirma yani
-            CamChanged(); //sure hala bir secenek ama daha akilci yontemler bulmaya calis.
+        animatorClips = this.animator.GetCurrentAnimatorClipInfo(0);
+        if (animatorClips[0].clip.name == "Start")
+            CamChanged();
     }
     private void CamChanged()
     {

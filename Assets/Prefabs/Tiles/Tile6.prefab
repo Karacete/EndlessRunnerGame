@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 6816662275374931837}
   m_Layer: 0
   m_Name: Bus_Red (1)
-  m_TagString: Barrier
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1916,10 +1916,10 @@ Transform:
   - {fileID: 8529906723883809649}
   - {fileID: 6107299131963793802}
   - {fileID: 3039018441733603221}
-  - {fileID: 7652951448894966149}
-  - {fileID: 4301832247975305729}
-  - {fileID: 7782696209422109632}
   - {fileID: 2559841140474168657}
+  - {fileID: 4301832247975305729}
+  - {fileID: 7652951448894966149}
+  - {fileID: 7782696209422109632}
   - {fileID: 1760494752579486584}
   - {fileID: 6719006651340739246}
   m_Father: {fileID: 0}
@@ -3250,7 +3250,7 @@ GameObject:
   - component: {fileID: 4424145967537500457}
   m_Layer: 0
   m_Name: Car_3_Green
-  m_TagString: Barrier
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6675,7 +6675,7 @@ GameObject:
   - component: {fileID: 5930627125922436736}
   m_Layer: 0
   m_Name: Bus_Blue
-  m_TagString: Barrier
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7359,7 +7359,7 @@ GameObject:
   - component: {fileID: 6960740761587718267}
   m_Layer: 0
   m_Name: Bus_Red
-  m_TagString: Barrier
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8296,7 +8296,7 @@ GameObject:
   - component: {fileID: 3116978086092192712}
   m_Layer: 0
   m_Name: Bus_Yellow
-  m_TagString: Barrier
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

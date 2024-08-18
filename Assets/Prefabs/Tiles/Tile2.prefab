@@ -313,9 +313,10 @@ GameObject:
   - component: {fileID: 5018206892364507898}
   - component: {fileID: 2148274709112306754}
   - component: {fileID: 2584912965074714718}
+  - component: {fileID: 507218042099973416}
   m_Layer: 0
   m_Name: Bus_Green
-  m_TagString: Untagged
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -391,6 +392,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &507218042099973416
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600453339221963413}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.103491925, y: 0.02443001, z: 0.024721885}
+  m_Center: {x: -0.007471194, y: -0.0010645814, z: -0.000000008847564}
 --- !u!1 &920034207737097004
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,6 +451,7 @@ Transform:
   - {fileID: 5576678696301706968}
   - {fileID: 5018206892364507898}
   - {fileID: 2943538428326627196}
+  - {fileID: 3087451363813643833}
   - {fileID: 2064728090908427732}
   - {fileID: 8878794131667488441}
   - {fileID: 5412521690149843903}
@@ -437,7 +460,6 @@ Transform:
   - {fileID: 8169298064887053080}
   - {fileID: 8274368242005341819}
   - {fileID: 2651527463720086261}
-  - {fileID: 3087451363813643833}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &862535685343650874
@@ -4737,9 +4759,10 @@ GameObject:
   - component: {fileID: 3087451363813643833}
   - component: {fileID: 3520117279506453543}
   - component: {fileID: 46056950994171710}
+  - component: {fileID: 8702878516588612557}
   m_Layer: 0
   m_Name: Bus_Yellow
-  m_TagString: Untagged
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4815,6 +4838,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8702878516588612557
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4627219886707973554}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.103491925, y: 0.02443001, z: 0.024721885}
+  m_Center: {x: -0.007471194, y: -0.0010645814, z: -0.000000012572854}
 --- !u!1 &4650079252350993239
 GameObject:
   m_ObjectHideFlags: 0
@@ -6621,9 +6665,10 @@ GameObject:
   - component: {fileID: 8878794131667488441}
   - component: {fileID: 8754886882004701836}
   - component: {fileID: 2264659667267801701}
+  - component: {fileID: 5812575632027099352}
   m_Layer: 0
   m_Name: Bus_Green (1)
-  m_TagString: Untagged
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6699,6 +6744,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5812575632027099352
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572225944984237260}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.103491925, y: 0.02443001, z: 0.024721885}
+  m_Center: {x: -0.007471179, y: -0.0010645814, z: -0.000000008847564}
 --- !u!1 &6668615691124306823
 GameObject:
   m_ObjectHideFlags: 0
@@ -7371,9 +7437,10 @@ GameObject:
   - component: {fileID: 2943538428326627196}
   - component: {fileID: 6037719713068836443}
   - component: {fileID: 1913634322653288781}
+  - component: {fileID: 1719758178195153862}
   m_Layer: 0
   m_Name: Bus_Purple
-  m_TagString: Untagged
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7449,6 +7516,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1719758178195153862
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7551153374465722018}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.103491925, y: 0.02443001, z: 0.024721885}
+  m_Center: {x: -0.007471194, y: -0.0010645814, z: -0.000000012572854}
 --- !u!1 &7626051537214689768
 GameObject:
   m_ObjectHideFlags: 0
@@ -8973,7 +9061,7 @@ GameObject:
   - component: {fileID: 7721926162299534046}
   m_Layer: 0
   m_Name: Car_2_Yellow
-  m_TagString: Barrier
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

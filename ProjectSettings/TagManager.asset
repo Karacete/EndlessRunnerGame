@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Ground
   - Barrier
-  - Animator
+  - Vehicle
   layers:
   - Default
   - TransparentFX
