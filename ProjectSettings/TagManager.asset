@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Barrier
   - Vehicle
+  - Coin
   layers:
   - Default
   - TransparentFX
