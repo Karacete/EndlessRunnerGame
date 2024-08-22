@@ -17,6 +17,11 @@ public class PlayerMovement : MonoBehaviour
     private int newDesired;
     [SerializeField]
     private GameObject mainCam;
+    [SerializeField]
+    private GameObject redLight;
+    [SerializeField]
+    private GameObject blueLight;
+    private int chance;
     void Start()
     {
         speed = 10f;
@@ -28,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         gravity = 3f;
         newDesired = desiredLine;
         oldDesired = 4;
+        chance = 2;
     }
 
     [Obsolete]
@@ -41,6 +47,11 @@ public class PlayerMovement : MonoBehaviour
             if (!isGrounded)
                 rb.AddForce(0, -gravity, 0);
         }
+        if (chance == 1)
+        {
+            StartCoroutine(LightManager());
+        }
+        Debug.Log(chance);
     }
     void Update()
     {
@@ -81,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
             desiredLine = oldDesired;
             newDesired = desiredLine;
             oldDesired = newDesired;
+            chance = 1;
         }
     }
     private void DesiredChanged()
@@ -92,5 +104,19 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = new Vector3(0,jumpForce,0);
         isGrounded = false;
+    }
+    private IEnumerator LightManager()
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            blueLight.SetActive(false);
+            redLight.SetActive(true);
+            yield return new WaitForSeconds(.5f);
+            redLight.SetActive(false);
+            blueLight.SetActive(true);
+            yield return new WaitForSeconds(.5f);
+        }
+        blueLight.SetActive(false);
+        chance = 2;
     }
 }
