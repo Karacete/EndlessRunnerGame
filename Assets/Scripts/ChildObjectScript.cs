@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -20,11 +18,6 @@ public class ChildObjectScript : MonoBehaviour
         {
             Time.timeScale = 0;
             losePanel.SetActive(true);
-        }
-        if (other.gameObject.CompareTag("Coin"))
-        {
-            pointCount += 4;
-            pointText.text = pointCount.ToString();
         }
     }
 }
