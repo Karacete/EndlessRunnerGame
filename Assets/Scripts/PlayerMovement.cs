@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     private float laneDistance;
     private float jumpForce;
     private bool isGrounded;
-    private bool isJumping;
     private float gravity;
     private int oldDesired;
     private int newDesired;
@@ -25,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private GameObject losePanel;
     private Animator animator;
+    private AnimatorClipInfo[] animatorClips;
     void Start()
     {
         speed = 11.5f;
@@ -58,7 +58,9 @@ public class PlayerMovement : MonoBehaviour
             Time.timeScale = 0;
             losePanel.SetActive(true);
         }
-        Debug.Log(chance);
+        animatorClips = this.animator.GetCurrentAnimatorClipInfo(0);
+        if (animatorClips[0].clip.name == "Rolling")
+            animator.SetBool("IsRolling", false);
     }
     void Update()
     {
@@ -78,10 +80,15 @@ public class PlayerMovement : MonoBehaviour
                 desiredLine = 0;
             DesiredChanged();
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             if (isGrounded)
                 Jump();
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsRolling", true);
         }
         Vector3 targetPos = rb.position.z * transform.forward + rb.position.y * transform.up;
         if (desiredLine == 0)
@@ -97,8 +104,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsGrounded", true);
             isGrounded = true;
             animator.SetBool("IsJumping", false);
-            isJumping = false;
-            //animator.SetBool("IsFalling", false);
         }
         if (collision.gameObject.CompareTag("Vehicle"))
         {
@@ -127,14 +132,9 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = new Vector3(0, jumpForce, 0);
         animator.SetBool("IsJumping", true);
-        isJumping = true;
         animator.SetBool("IsGrounded", false);
         isGrounded = false;
-        if (isJumping && this.gameObject.transform.position.y > 1.5)
-        {
-            //animator.SetBool("IsFalling", true);
-            animator.SetBool("IsJumping", false);
-        }
+        animator.SetBool("IsRolling", false);
     }
     private IEnumerator LightManager()
     {

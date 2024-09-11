@@ -5,12 +5,11 @@ public class ChildObjectScript : MonoBehaviour
 {
     [SerializeField]
     private GameObject losePanel;
-    private int pointCount;
     [SerializeField]
     private TextMeshProUGUI pointText; 
     private void Start()
     {
-        pointCount = 0;
+
     }
     private void OnTriggerEnter(Collider other)
     {
