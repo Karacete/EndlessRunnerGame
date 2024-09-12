@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private float laneDistance;
     private float jumpForce;
     private bool isGrounded;
+    private bool isRolling;
     private float gravity;
     private int oldDesired;
     private int newDesired;
@@ -33,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         laneDistance = 3.4f;
         jumpForce = 7f;
         isGrounded = true;
+        isRolling = false;
         gravity = 3f;
         newDesired = desiredLine;
         oldDesired = 4;
@@ -58,9 +60,14 @@ public class PlayerMovement : MonoBehaviour
             Time.timeScale = 0;
             losePanel.SetActive(true);
         }
+        if (!isRolling)
+            return;
         animatorClips = this.animator.GetCurrentAnimatorClipInfo(0);
-        if (animatorClips[0].clip.name == "Rolling")
+        if (animatorClips[0].clip.name == "Stand To Roll")
+        {
             animator.SetBool("IsRolling", false);
+            isRolling = false;
+        }
     }
     void Update()
     {
@@ -87,8 +94,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            animator.SetBool("IsJumping", false);
-            animator.SetBool("IsRolling", true);
+            Roll();
         }
         Vector3 targetPos = rb.position.z * transform.forward + rb.position.y * transform.up;
         if (desiredLine == 0)
@@ -115,12 +121,15 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Coin") && chance == 1)
+        if (other.gameObject.CompareTag("Coin"))
         {
-            chance = 2;
-            redLight.SetActive(false);
-            blueLight.SetActive(false);
-            StopAllCoroutines();
+            if(chance==1)
+            {
+                chance = 2;
+                redLight.SetActive(false);
+                blueLight.SetActive(false);
+                StopAllCoroutines();
+            }
         }
     }
     private void DesiredChanged()
@@ -135,6 +144,14 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsGrounded", false);
         isGrounded = false;
         animator.SetBool("IsRolling", false);
+        isRolling = false;
+    }
+    private void Roll()
+    {
+        animator.SetBool("IsJumping", false);
+        animator.SetBool("IsRolling", true);
+        isRolling = true;
+        rb.velocity = new Vector3(0, 0, speed);
     }
     private IEnumerator LightManager()
     {

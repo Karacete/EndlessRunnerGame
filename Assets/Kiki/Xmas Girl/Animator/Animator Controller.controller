@@ -45,9 +45,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.2
+  m_TransitionDuration: 0.17449526
   m_TransitionOffset: 0
-  m_ExitTime: 0.6875
+  m_ExitTime: 0.39483255
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 2
@@ -95,9 +95,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.12550485
+  m_TransitionDuration: 0.4565001
   m_TransitionOffset: 0
-  m_ExitTime: 0.7225856
+  m_ExitTime: 0.54204273
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -404,7 +404,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Rolling
-  m_Speed: 2
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3835688138589457810}
@@ -417,7 +417,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: ce898194cd3a1ef44a0b71297be66b14, type: 3}
+  m_Motion: {fileID: -203655887218126122, guid: d719512f9a744364eaa46f4977cbb705, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

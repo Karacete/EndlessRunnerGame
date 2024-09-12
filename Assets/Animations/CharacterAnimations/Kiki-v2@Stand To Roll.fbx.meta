@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ce898194cd3a1ef44a0b71297be66b14
+guid: d719512f9a744364eaa46f4977cbb705
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Rolling
+      name: Stand To Roll
       takeName: mixamo.com
       internalID: -203655887218126122
-      firstFrame: 3
-      lastFrame: 24
+      firstFrame: 10
+      lastFrame: 65
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
