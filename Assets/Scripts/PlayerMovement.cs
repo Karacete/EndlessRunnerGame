@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private GameObject losePanel;
     private Animator animator;
     private AnimatorClipInfo[] animatorClips;
+    private CapsuleCollider capsuleCol;
     void Start()
     {
         speed = 11.5f;
@@ -40,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         oldDesired = 4;
         chance = 2;
         animator = GetComponent<Animator>();
+        capsuleCol = this.gameObject.GetComponent<CapsuleCollider>();
     }
 
     [Obsolete]
@@ -119,17 +121,27 @@ public class PlayerMovement : MonoBehaviour
             chance -= 1;
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Coin") && isRolling)
+        {
+            capsuleCol.height = .4f;
+            capsuleCol.center = new Vector3(0, .3f, 0);
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Coin"))
         {
-            if(chance==1)
+            if (chance == 1)
             {
                 chance = 2;
                 redLight.SetActive(false);
                 blueLight.SetActive(false);
                 StopAllCoroutines();
             }
+            capsuleCol.height = 1.4f;
+            capsuleCol.center = new Vector3(0, .7f, 0);
         }
     }
     private void DesiredChanged()
@@ -155,7 +167,6 @@ public class PlayerMovement : MonoBehaviour
     }
     private IEnumerator LightManager()
     {
-
         blueLight.SetActive(true);
         redLight.SetActive(false);
         yield return new WaitForSeconds(.5f);
