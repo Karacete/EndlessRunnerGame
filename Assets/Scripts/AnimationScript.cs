@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Video;
 
 public class AnimationScript : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class AnimationScript : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        animator.Play("Vibration");
+        animator.Play("Focus");
     }
     private void FixedUpdate()
     {

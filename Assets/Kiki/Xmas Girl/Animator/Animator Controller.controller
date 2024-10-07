@@ -8,7 +8,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Jumping
-  m_Speed: 0.35
+  m_Speed: 0.7
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3760785503464198458}
@@ -61,7 +61,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Landing
-  m_Speed: 1.5
+  m_Speed: 0.92
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -6825828349208444234}
@@ -329,7 +329,7 @@ AnimatorStateMachine:
     m_Position: {x: 780, y: 70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5143941457494195460}
-    m_Position: {x: 660, y: 210, z: 0}
+    m_Position: {x: 670, y: 210, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

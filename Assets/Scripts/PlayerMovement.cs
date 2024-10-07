@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     private int chance;
     [SerializeField]
     private GameObject losePanel;
+    [SerializeField]
+    private GameObject childObject;
     private Animator animator;
     private AnimatorClipInfo[] animatorClips;
     private CapsuleCollider capsuleCol;
@@ -33,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         desiredLine = 1;
         laneDistance = 3.4f;
-        jumpForce = 7f;
+        jumpForce = 6.3f;
         isGrounded = true;
         isRolling = false;
         gravity = 3f;
@@ -125,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Coin") && isRolling)
         {
+            childObject.SetActive(false);
             capsuleCol.height = .4f;
             capsuleCol.center = new Vector3(0, .3f, 0);
         }
@@ -140,6 +143,7 @@ public class PlayerMovement : MonoBehaviour
                 blueLight.SetActive(false);
                 StopAllCoroutines();
             }
+            childObject.SetActive(true);
             capsuleCol.height = 1.4f;
             capsuleCol.center = new Vector3(0, .7f, 0);
         }

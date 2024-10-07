@@ -11,7 +11,7 @@ public class CameraContoller : MonoBehaviour
     }
     void Update()
     {
-        Vector3 newPos = new Vector3(transform.position.x, transform.position.y, offset.z + targetPos.position.z);
+        Vector3 newPos = new Vector3(targetPos.position.x, transform.position.y, offset.z + targetPos.position.z);
         transform.position = Vector3.Lerp(transform.position, newPos, 100);
     }
 }
