@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -45,11 +44,9 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         capsuleCol = this.gameObject.GetComponent<CapsuleCollider>();
     }
-
-    [Obsolete]
     private void FixedUpdate()
     {
-        if (mainCam.active)
+        if (mainCam.activeInHierarchy)
         {
             Vector3 forwardMove = transform.forward * speed * Time.fixedDeltaTime;
             Vector3 horizontalMove = transform.right * horizontal * speed * Time.fixedDeltaTime;
@@ -75,6 +72,33 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.deltaPosition.x > 30)
+            {
+                desiredLine += 1;
+                if (desiredLine > 2)
+                    desiredLine = 2;
+                DesiredChanged();
+            }
+            if (touch.deltaPosition.x < -30)
+            {
+                desiredLine -= 1;
+                if (desiredLine == -1)
+                    desiredLine = 0;
+                DesiredChanged();
+            }
+            if (touch.deltaPosition.y > 20)
+            {
+                if (isGrounded)
+                    Jump();
+            }
+            if (touch.deltaPosition.y < -20)
+            {
+                Roll();
+            }
+        }
         horizontal = Input.GetAxis("Horizontal");
         if (Input.GetKeyDown(KeyCode.D))
         {

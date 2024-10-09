@@ -6,7 +6,7 @@ public class ChildObjectScript : MonoBehaviour
     [SerializeField]
     private GameObject losePanel;
     [SerializeField]
-    private TextMeshProUGUI pointText; 
+    private TextMeshProUGUI pointText;
     private void Start()
     {
 
