@@ -63,6 +63,9 @@ public class PlayerMovement : MonoBehaviour
         }
         if (!isRolling)
             return;
+        childObject.SetActive(false);
+        capsuleCol.height = .4f;
+        capsuleCol.center = new Vector3(0, .3f, 0);
         animatorClips = this.animator.GetCurrentAnimatorClipInfo(0);
         if (animatorClips[0].clip.name == "Stand To Roll")
         {
@@ -145,15 +148,6 @@ public class PlayerMovement : MonoBehaviour
             newDesired = desiredLine;
             oldDesired = newDesired;
             chance -= 1;
-        }
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.CompareTag("Coin") && isRolling)
-        {
-            childObject.SetActive(false);
-            capsuleCol.height = .4f;
-            capsuleCol.center = new Vector3(0, .3f, 0);
         }
     }
     private void OnTriggerExit(Collider other)
