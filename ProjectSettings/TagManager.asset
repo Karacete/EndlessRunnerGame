@@ -8,6 +8,7 @@ TagManager:
   - Barrier
   - Vehicle
   - Coin
+  - LoadScene
   layers:
   - Default
   - TransparentFX

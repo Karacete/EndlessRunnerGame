@@ -1,4 +1,7 @@
+using System;
 using System.Collections;
+using System.Drawing;
+using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -16,24 +19,23 @@ public class PlayerMovement : MonoBehaviour
     private int newDesired;
     [SerializeField]
     private GameObject mainCam;
-    [SerializeField]
-    private GameObject redLight;
-    [SerializeField]
-    private GameObject blueLight;
     private int chance;
     [SerializeField]
     private GameObject losePanel;
     [SerializeField]
-    private GameObject childObject;
+    private GameObject childObj;
     private Animator animator;
     private AnimatorClipInfo[] animatorClips;
     private CapsuleCollider capsuleCol;
+    [SerializeField]
+    private TextMeshProUGUI pointText;
+    private double point;
     void Start()
     {
-        speed = 11.5f;
+        speed = 13f;
         rb = GetComponent<Rigidbody>();
         desiredLine = 1;
-        laneDistance = 3.4f;
+        laneDistance = 3.6f;
         jumpForce = 6.3f;
         isGrounded = true;
         isRolling = false;
@@ -46,16 +48,14 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (mainCam.activeInHierarchy)
-        {
-            Vector3 forwardMove = transform.forward * speed * Time.fixedDeltaTime;
-            Vector3 horizontalMove = transform.right * horizontal * speed * Time.fixedDeltaTime;
-            rb.MovePosition(rb.position + forwardMove + horizontalMove);
-            if (!isGrounded)
-                rb.AddForce(0, -gravity, 0);
-        }
-        if (chance == 1)
-            StartCoroutine(LightManager());
+        point += .1f;
+        point = Math.Round(point, 2);
+        pointText.text = point.ToString();
+        Vector3 forwardMove = transform.forward * speed * Time.fixedDeltaTime;
+        Vector3 horizontalMove = transform.right * horizontal * speed * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + forwardMove + horizontalMove);
+        if (!isGrounded)
+            rb.AddForce(0, -gravity, 0);
         if (chance == 0)
         {
             Time.timeScale = 0;
@@ -63,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
         }
         if (!isRolling)
             return;
-        childObject.SetActive(false);
         capsuleCol.height = .4f;
         capsuleCol.center = new Vector3(0, .3f, 0);
         animatorClips = this.animator.GetCurrentAnimatorClipInfo(0);
@@ -71,6 +70,12 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsRolling", false);
             isRolling = false;
+        }
+        if (!isRolling)
+        {
+            capsuleCol.height = 1.4f;
+            capsuleCol.center = new Vector3(0, .7f, 0);
+            //childObj.SetActive(true);
         }
     }
     void Update()
@@ -150,20 +155,19 @@ public class PlayerMovement : MonoBehaviour
             chance -= 1;
         }
     }
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Coin"))
+        if (other.gameObject.CompareTag("Coin")&&isRolling)
         {
+            childObj.SetActive(false);
+            Debug.Log(isRolling);
             if (chance == 1)
             {
                 chance = 2;
-                redLight.SetActive(false);
-                blueLight.SetActive(false);
-                StopAllCoroutines();
+                //redLight.SetActive(false);
+                //blueLight.SetActive(false);
+                //StopAllCoroutines();
             }
-            childObject.SetActive(true);
-            capsuleCol.height = 1.4f;
-            capsuleCol.center = new Vector3(0, .7f, 0);
         }
     }
     private void DesiredChanged()
@@ -186,13 +190,5 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsRolling", true);
         isRolling = true;
         rb.velocity = new Vector3(0, 0, speed);
-    }
-    private IEnumerator LightManager()
-    {
-        blueLight.SetActive(true);
-        redLight.SetActive(false);
-        yield return new WaitForSeconds(.5f);
-        blueLight.SetActive(false);
-        redLight.SetActive(true);
     }
 }

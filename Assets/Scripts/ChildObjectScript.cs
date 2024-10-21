@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -5,11 +6,10 @@ public class ChildObjectScript : MonoBehaviour
 {
     [SerializeField]
     private GameObject losePanel;
-    [SerializeField]
-    private TextMeshProUGUI pointText;
+    private BoxCollider boxCol;
     private void Start()
     {
-
+        boxCol = GetComponent<BoxCollider>();
     }
     private void OnTriggerEnter(Collider other)
     {
