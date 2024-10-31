@@ -22,14 +22,23 @@ public class PlayerMovement : MonoBehaviour
     private int chance;
     [SerializeField]
     private GameObject losePanel;
-    [SerializeField]
-    private GameObject childObj;
     private Animator animator;
     private AnimatorClipInfo[] animatorClips;
     private CapsuleCollider capsuleCol;
     [SerializeField]
     private TextMeshProUGUI pointText;
     private double point;
+    public bool isRollingPublic
+    {
+        get
+        {
+            return isRolling;
+        }
+        set
+        {
+            isRolling = value;
+        }
+    }
     void Start()
     {
         speed = 13f;
@@ -61,21 +70,21 @@ public class PlayerMovement : MonoBehaviour
             Time.timeScale = 0;
             losePanel.SetActive(true);
         }
-        if (!isRolling)
-            return;
-        capsuleCol.height = .4f;
-        capsuleCol.center = new Vector3(0, .3f, 0);
-        animatorClips = this.animator.GetCurrentAnimatorClipInfo(0);
-        if (animatorClips[0].clip.name == "Stand To Roll")
+        if (isRolling)
         {
-            animator.SetBool("IsRolling", false);
-            isRolling = false;
-        }
-        if (!isRolling)
-        {
-            capsuleCol.height = 1.4f;
-            capsuleCol.center = new Vector3(0, .7f, 0);
-            //childObj.SetActive(true);
+            capsuleCol.height = .4f;
+            capsuleCol.center = new Vector3(0, .3f, 0);
+            animatorClips = this.animator.GetCurrentAnimatorClipInfo(0);
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Rolling") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.7f)
+            {
+                animator.SetBool("IsRolling", false);
+                isRolling = false;
+            }
+            if (!isRolling)
+            {
+                capsuleCol.height = 1.4f;
+                capsuleCol.center = new Vector3(0, .7f, 0);
+            }
         }
     }
     void Update()
@@ -83,26 +92,26 @@ public class PlayerMovement : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if (touch.deltaPosition.x > 30)
+            if (touch.deltaPosition.x > 100)
             {
                 desiredLine += 1;
                 if (desiredLine > 2)
                     desiredLine = 2;
                 DesiredChanged();
             }
-            if (touch.deltaPosition.x < -30)
+            if (touch.deltaPosition.x < -100)
             {
                 desiredLine -= 1;
                 if (desiredLine == -1)
                     desiredLine = 0;
                 DesiredChanged();
             }
-            if (touch.deltaPosition.y > 20)
+            if (touch.deltaPosition.y > 80)
             {
                 if (isGrounded)
                     Jump();
             }
-            if (touch.deltaPosition.y < -20)
+            if (touch.deltaPosition.y < -80)
             {
                 Roll();
             }
@@ -157,16 +166,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Coin")&&isRolling)
+        if (other.gameObject.CompareTag("Coin") && isRolling)
         {
-            childObj.SetActive(false);
-            Debug.Log(isRolling);
             if (chance == 1)
             {
                 chance = 2;
-                //redLight.SetActive(false);
-                //blueLight.SetActive(false);
-                //StopAllCoroutines();
             }
         }
     }

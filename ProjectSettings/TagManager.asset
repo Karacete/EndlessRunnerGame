@@ -9,6 +9,7 @@ TagManager:
   - Vehicle
   - Coin
   - LoadScene
+  - Localization
   layers:
   - Default
   - TransparentFX

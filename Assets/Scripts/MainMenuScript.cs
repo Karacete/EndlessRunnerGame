@@ -3,10 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
+    private int curLang;
     private LoadSceneManager loadScene;
+    private LocalizationScript localization;
     private void Start()
     {
         loadScene = GameObject.FindWithTag("LoadScene").GetComponent<LoadSceneManager>();
+        localization = GameObject.FindWithTag("Localization").GetComponent<LocalizationScript>();
         if (PlayerPrefs.HasKey("Language"))
             PlayerPrefs.GetInt("Language");
         else
@@ -17,7 +20,9 @@ public class MainMenuScript : MonoBehaviour
         else
             PlayerPrefs.SetInt("Volume", 1);
 
+        curLang = PlayerPrefs.GetInt("Language");
         AudioListener.volume = PlayerPrefs.GetInt("Volume");
+        localization.LanguageChange(curLang);
     }
     public void Play()
     {

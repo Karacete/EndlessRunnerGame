@@ -5,18 +5,10 @@ using UnityEngine.Localization.Settings;
 
 public class LocalizationScript : MonoBehaviour
 {
-    private int language;
     private bool active;
     void Start()
     {
-        language = PlayerPrefs.GetInt("Language");
         active = false;
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
     public void LanguageChange(int id)
@@ -24,7 +16,7 @@ public class LocalizationScript : MonoBehaviour
         if (active)
             return;
         StartCoroutine(SetLocale(id));
-        PlayerPrefs.SetInt("language", id);
+        PlayerPrefs.SetInt("Language", id);
         PlayerPrefs.Save();
     }
     protected IEnumerator SetLocale(int number)
