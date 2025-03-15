@@ -181,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Jump()
     {
-        rb.velocity = new Vector3(0, jumpForce, 0);
+        rb.linearVelocity = new Vector3(0, jumpForce, 0);
         animator.SetBool("IsJumping", true);
         animator.SetBool("IsGrounded", false);
         isGrounded = false;
@@ -193,6 +193,6 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsJumping", false);
         animator.SetBool("IsRolling", true);
         isRolling = true;
-        rb.velocity = new Vector3(0, 0, speed);
+        rb.linearVelocity = new Vector3(0, 0, speed);
     }
 }

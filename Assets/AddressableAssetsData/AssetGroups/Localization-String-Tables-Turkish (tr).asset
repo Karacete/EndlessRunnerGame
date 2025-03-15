@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Localization-String-Tables-Turkish (tr)
   m_EditorClassIdentifier: 
   m_GroupName: Localization-String-Tables-Turkish (tr)
-  m_Data:
-    m_SerializedData: []
   m_GUID: 060b8cc89c9f9fe4fa72342964b8e329
   m_SerializeEntries:
   - m_GUID: e8bdfbabfc4232042b77199f6b2e25e5
