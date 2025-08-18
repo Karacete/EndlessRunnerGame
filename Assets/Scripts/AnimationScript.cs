@@ -13,13 +13,13 @@ public class AnimationScript : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        animatorClips = this.animator.GetCurrentAnimatorClipInfo(0);
+        animatorClips = animator.GetCurrentAnimatorClipInfo(0);
         if (animatorClips[0].clip.name == "Start")
             CamChanged();
     }
     private void CamChanged()
     {
         mainCam.SetActive(true);
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }

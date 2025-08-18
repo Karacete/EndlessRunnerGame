@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovementScript : MonoBehaviour
@@ -9,15 +7,20 @@ public class PlayerMovementScript : MonoBehaviour
     private float forwardSpeed;
     private int desiredLane;
     private float laneDistance;
+    private GameObject mainCam;
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        mainCam = GameObject.FindWithTag("MainCamera");
         forwardSpeed = 0;
         desiredLane = 1;
         laneDistance = 4;
     }
     void Update()
     {
+
+        if (!mainCam.activeSelf)
+            return;
         direction.z = forwardSpeed;
         if(Input.GetKeyDown(KeyCode.D))
         {

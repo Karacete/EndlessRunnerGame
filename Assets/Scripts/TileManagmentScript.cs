@@ -16,7 +16,7 @@ public class TileManagmentScript : MonoBehaviour
         zSpawn = 0;
         tileLength = 99.7f;
         playerTransform = GameObject.FindWithTag("Player").transform;
-        numberofTiles = 5;
+        numberofTiles = 3;
         for (int i = 0; i < numberofTiles; i++)
         {
             TileSpawn(Random.Range(0, tilesPrefabs.Length));
@@ -32,7 +32,7 @@ public class TileManagmentScript : MonoBehaviour
     }
     private void TileSpawn(int tileIndex)
     {
-        GameObject go = Instantiate(tilesPrefabs[tileIndex], transform.up * -zSpawn, transform.rotation);
+        GameObject go = Instantiate(tilesPrefabs[tileIndex], transform.forward * zSpawn, Quaternion.Euler(-90,0,0));
         activeTiles.Add(go);
         zSpawn += tileLength;
     }

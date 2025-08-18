@@ -8,7 +8,7 @@ public class CameraContoller : MonoBehaviour
     void Start()
     {
         targetPos = GameObject.FindWithTag("Player").transform;
-        offset = this.gameObject.transform.position - targetPos.position;
+        offset = gameObject.transform.position - targetPos.position;
         animator = GameObject.FindWithTag("Player").GetComponent<Animator>();
         animator.SetFloat("Speed", 0.5f);
     }

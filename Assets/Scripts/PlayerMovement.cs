@@ -41,11 +41,11 @@ public class PlayerMovement : MonoBehaviour
     }
     void Start()
     {
-        speed = 13f;
+        speed = 10f;
         rb = GetComponent<Rigidbody>();
         desiredLine = 1;
         laneDistance = 3.6f;
-        jumpForce = 6.3f;
+        jumpForce = 6f;
         isGrounded = true;
         isRolling = false;
         gravity = 3f;
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         oldDesired = 4;
         chance = 2;
         animator = GetComponent<Animator>();
-        capsuleCol = this.gameObject.GetComponent<CapsuleCollider>();
+        capsuleCol = gameObject.GetComponent<CapsuleCollider>();
     }
     private void FixedUpdate()
     {
@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         {
             capsuleCol.height = .4f;
             capsuleCol.center = new Vector3(0, .3f, 0);
-            animatorClips = this.animator.GetCurrentAnimatorClipInfo(0);
+            animatorClips = animator.GetCurrentAnimatorClipInfo(0);
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("Rolling") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.7f)
             {
                 animator.SetBool("IsRolling", false);
