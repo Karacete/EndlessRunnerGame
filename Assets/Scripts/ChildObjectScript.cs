@@ -19,17 +19,4 @@ public class ChildObjectScript : MonoBehaviour
             losePanel.SetActive(true);
         }
     }
-    private void Update()
-    {
-        if (player.isRollingPublic)
-        {
-            boxCol.size = new Vector3(1, .2f, 1);
-            boxCol.center = new Vector3(0, -.4f, 0);
-        }
-        if (!player.isRollingPublic)
-        {
-            boxCol.size = new Vector3(1, 1.5f, 1);
-            boxCol.center = new Vector3(0, 0, 0);
-        }
-    }
 }

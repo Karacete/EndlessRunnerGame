@@ -10,6 +10,7 @@ TagManager:
   - Coin
   - LoadScene
   - Localization
+  - Skateboard
   layers:
   - Default
   - TransparentFX

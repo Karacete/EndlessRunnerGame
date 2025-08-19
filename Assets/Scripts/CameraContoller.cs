@@ -4,13 +4,10 @@ public class CameraContoller : MonoBehaviour
 {
     private Transform targetPos;
     private Vector3 offset;
-    private Animator animator;
     void Start()
     {
-        targetPos = GameObject.FindWithTag("Player").transform;
+        targetPos = GameObject.FindWithTag("Skateboard").transform;
         offset = gameObject.transform.position - targetPos.position;
-        animator = GameObject.FindWithTag("Player").GetComponent<Animator>();
-        animator.SetFloat("Speed", 0.5f);
     }
     void Update()
     {
