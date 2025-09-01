@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 4085687292235350579}
   m_Layer: 0
   m_Name: Car_5_Blue
-  m_TagString: Untagged
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -487,8 +487,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.038825084, y: 0.016139852, z: 0.013056753}
-  m_Center: {x: -0.00080476276, y: 0.0000000030829785, z: 0.00018062243}
+  m_Size: {x: 0.04930534, y: 0.030653084, z: 0.013056753}
+  m_Center: {x: -0.0014032205, y: 0.0006154248, z: 0.0001806225}
 --- !u!1 &1902409423934032628
 GameObject:
   m_ObjectHideFlags: 0

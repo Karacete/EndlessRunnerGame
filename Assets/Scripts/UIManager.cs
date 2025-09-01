@@ -4,34 +4,22 @@ using UnityEditor.Localization.Platform.Android;
 using UnityEngine;
 public class UIManager : MonoBehaviour
 {
-    private int point;
-    private int chance = 3; // Assuming player starts with 3 chances
-    public static UIManager Instance { get; private set; }
     private int counter = 0;
     [SerializeField] private TextMeshProUGUI counterText;
-    private void Awake()
+    private bool isSkateboardSpeedup = false;
+    public bool IsSkateboardSpeedup
     {
-        if (Instance == null)
+        get { return isSkateboardSpeedup; }
+        set { isSkateboardSpeedup = value; }
+    }
+    private void SkateboardSpeedup()
+    {
+        if (counter % 1000 == 0 && counter != 0)
         {
-            Instance = this;
+            isSkateboardSpeedup = true;
         }
         else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    public void AddPoint(int points)
-    {
-        point += points;
-    }
-
-    public void LoseChance()
-    {
-        if (chance > 0)
-        {
-            chance--;
-        }
+            isSkateboardSpeedup = false;
     }
     public void PauseGame()
     {
@@ -41,5 +29,6 @@ public class UIManager : MonoBehaviour
     {
         counter++;
         counterText.text = counter.ToString("D6");
+        SkateboardSpeedup();
     }
 }
