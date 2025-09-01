@@ -13,10 +13,10 @@ public class TileManagmentScript : MonoBehaviour
     private List<GameObject> activeTiles = new List<GameObject>();
     void Start()
     {
-        zSpawn = 0;
+        zSpawn = 61.16f;
         tileLength = 99.7f;
         playerTransform = GameObject.FindWithTag("Player").transform;
-        numberofTiles = 3;
+        numberofTiles = 7;
         for (int i = 0; i < numberofTiles; i++)
         {
             TileSpawn(Random.Range(0, tilesPrefabs.Length));

@@ -5,12 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
-  - Barrier
   - Vehicle
   - Coin
   - LoadScene
   - Localization
   - Skateboard
+  - Wall
   layers:
   - Default
   - TransparentFX
