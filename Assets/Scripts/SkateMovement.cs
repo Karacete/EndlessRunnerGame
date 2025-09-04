@@ -15,40 +15,56 @@ public class SkateMovement : MonoBehaviour
     void Start()
     {
         speed = 20;
-        horizontalSpeed = 10;
+        horizontalSpeed = 5;
         skateboardAnim = GetComponent<Animator>();
         uiManager = GameObject.FindWithTag("UI").GetComponent<UIManager>();
     }
     void Update()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        if (Input.touchCount > 0)
+        if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
-            Touch touch = Input.GetTouch(0);
-            float halfScreenWidth = Screen.width / 2;
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
-                    if (touch.position.x > halfScreenWidth)
-                    {
-                        Right();
-                    }
-                    else if (touch.position.x < halfScreenWidth)
-                    {
-                        Left();
-                    }
-                    break;
-
-                case TouchPhase.Ended:
-
-                case TouchPhase.Canceled:
-                    if (touch.position.x > halfScreenWidth)
-                        StopRight();
-                    else if (touch.position.x < halfScreenWidth)
-                        StopLeft();
-                    break;
-            }
+            Left();
         }
+        if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.A))
+        {
+            StopLeft();
+        }
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            Right();
+        }
+        if (Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            StopRight();
+        }
+        if (Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
+                float halfScreenWidth = Screen.width / 2;
+                switch (touch.phase)
+                {
+                    case TouchPhase.Began:
+                        if (touch.position.x > halfScreenWidth)
+                        {
+                            Right();
+                        }
+                        else if (touch.position.x < halfScreenWidth)
+                        {
+                            Left();
+                        }
+                        break;
+
+                    case TouchPhase.Ended:
+
+                    case TouchPhase.Canceled:
+                        if (touch.position.x > halfScreenWidth)
+                            StopRight();
+                        else if (touch.position.x < halfScreenWidth)
+                            StopLeft();
+                        break;
+                }
+            }
     }
     private void FixedUpdate()
     {
@@ -80,7 +96,7 @@ public class SkateMovement : MonoBehaviour
         if (uiManager.IsSkateboardSpeedup)
         {
             speed += 5;
-            horizontalSpeed += 1;
+            horizontalSpeed += .85f;
         }
     }
     private void OnCollisionEnter(Collision collision)
