@@ -96,7 +96,6 @@ public class SkateMovement : MonoBehaviour
         if (uiManager.IsSkateboardSpeedup)
         {
             speed += 5;
-            horizontalSpeed += .85f;
         }
     }
     private void OnCollisionEnter(Collision collision)

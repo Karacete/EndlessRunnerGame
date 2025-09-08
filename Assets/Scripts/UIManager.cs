@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
         get { return isSkateboardSpeedup; }
         set { isSkateboardSpeedup = value; }
     }
+    [SerializeField]
+    private TextMeshProUGUI coinText;
     private void SkateboardSpeedup()
     {
         if (counter % 1000 == 0 && counter != 0)
@@ -20,6 +22,10 @@ public class UIManager : MonoBehaviour
         }
         else
             isSkateboardSpeedup = false;
+    }
+    public void CoinTextUpdate(int coinCount)
+    {
+        coinText.text = coinCount.ToString();
     }
     public void PauseGame()
     {
